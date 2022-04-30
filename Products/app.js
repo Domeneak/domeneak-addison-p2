@@ -7,12 +7,12 @@ const PORT = process.env.PORT || 8000
 
 let products = [{
     id : 1,
-    name : 'Book',
+    name : 'Pen',
     quantity : 10,
     price : 25
 },{
     id : 2,
-    name : 'Marker',
+    name : 'Pencil',
     quantity : 99,
     price : 5
 }]   
@@ -22,15 +22,15 @@ app.use(json())
 
 const product =
 
-app.get('/api/product/readAll', product.readAll)
+app.get('/api/products/readAll', product.readAll)
     res.send(products)
 
 
-app.get('/api/product/find/:id', (req, res) => {
+app.get('/api/products/find/:id', (req, res) => {
     res.send(products.find(product => product.id === parseInt(req.params.id)))
 })
 
-app.post('/api/product/add', (req, res) => {
+app.post('/api/products/add', (req, res) => {
     products.push({
         id : products.length + 1,
         name : req.body.name,
